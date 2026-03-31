@@ -1,0 +1,14 @@
+# Ignore build output and user-specific files
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+# Ignore Rider project files
+.idea/
+# Ignore Mac system files
+.DS_Store
+# Ignore VS Code settings
+.vscode/
