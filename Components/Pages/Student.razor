@@ -1,0 +1,35 @@
+﻿@page "/student"
+@rendermode InteractiveServer // blazor server
+@inject StudentService service
+
+<PageTitle>Student Survival</PageTitle>
+
+<h1>Student school</h1>
+<p>Student: @student.Name</p>
+<p>Energy: @student.Energy</p>
+<p>Knowledge: @student.Knowledge</p>
+<p role="status" style="background:olive;width: 20%;">Current Stress: @currentCount</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Stress Increase</button>
+<button class="btn btn-primary" @onclick="DecrementCount">Stress Decrease</button>
+<hr>
+<input type="text" @bind="favoriteColor"/>
+<button class="btn btn-secondary">Submit</button>
+<hr>
+<h3>Your fav color is: <span style="background:olive;color:white;border-radius:10px;padding:0 5px;">@favoriteColor</span></h3>
+
+@code { // csharp code
+	global::Student student => service.Current;
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+	private void DecrementCount()
+    {
+        currentCount--;
+    }
+
+	private string favoriteColor = "orange";
+}
